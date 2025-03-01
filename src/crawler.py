@@ -17,7 +17,10 @@ class BusinessFinder:
         self.status = {'emails': 0, 'last_check': '', 'errors': []}
         
     def get_proxy(self):
-        return {'http': next(self.proxies)}
+        return {
+        'http': f'http://{next(self.proxies)}',
+        'https': f'http://{next(self.proxies)}'
+    }
     
     def google_search(self, query):
         try:
